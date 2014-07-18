@@ -9,11 +9,11 @@ var adjustTime = function(data,timezone){
 		}
 	};
 	if ((typeof map[data.country] != 'undefined' && typeof regionMap[data.country] == 'undefined') || (typeof regionMap[data.country] != 'undefined' && typeof regionMap[data.country][data.region] == 'undefined')){
-		data.hour = data.hour + map[data.country];
+		data.hour = data.hour + map[data.country] + mapRelativeto;
 	}else if(typeof regionMap[data.country] != 'undefined' && typeof regionMap[data.country][data.region] != 'undefined'){
-		data.hour = data.hour + regionMap[data.country][data.region] - mapRelativeto;
+		data.hour = data.hour + regionMap[data.country][data.region];
 	}
-	data.hour =data.hour + timezone- mapRelativeto;
+	data.hour =data.hour - timezone;
 	if(data.hour < 0){
 		data.hour += 24;
 	}
