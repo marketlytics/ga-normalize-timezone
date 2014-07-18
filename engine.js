@@ -126,7 +126,6 @@ $(function(ready){
     	}
     	dataJSON=output;
     	console.log(dataJSON);
-    	$('#chartContainer').css('display','inline-block');
     	drawChart();
     	$('#dropdownView').css('display','inline');
     	$('#inputView').css('display','none');
@@ -146,7 +145,7 @@ var filldropbox = function(){
     var formatHeadings = function(rows){
     	var cells = rows[0].split('\t');
     	for(var i = 0; i < cells.length; i++){
-    		cells[i] =cells[i].substring(3,cells[i].length-1);
+    		cells[i] =cells[i].substring(3,cells[i].length);
     	}
     	return cells;
     }
