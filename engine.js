@@ -145,7 +145,7 @@ var filldropbox = function(){
     var formatHeadings = function(rows){
     	var cells = rows[0].split('\t');
     	for(var i = 0; i < cells.length; i++){
-    		cells[i] =cells[i].substring(3,cells[i].length);
+    		cells[i] =cells[i].substring(3,cells[i].length-1);
     	}
     	return cells;
     }
