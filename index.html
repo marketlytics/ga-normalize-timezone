@@ -1,5 +1,11 @@
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    
+    <link rel="stylesheet" type="text/css" href="css/select.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/generic.css"> -->
+    <script type='text/javascript' src='select.js'></script>
+
     <script type="text/javascript" src="vendor/jquery-2.1.1/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="engine.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -26,11 +32,11 @@
       </div>
 
       <div style="display: none;" id = 'dropdownView'>
-        <select name="countries" id = 'dropdownoptions'>
+        <select name="countries" id = 'dropdownoptions' class="turnintodropdown">
           <script type="text/javascript">
           </script>
         </select>
-        <select name="DropDownTimezone" id="DropDownTimezone">
+        <select name="DropDownTimezone" id="DropDownTimezone" class="turnintodropdown">
               <option value="-12">(GMT -12:00) Eniwetok, Kwajalein</option>
               <option value="-11">(GMT -11:00) Midway Island, Samoa</option>
               <option value="-10">(GMT -10:00) Hawaii</option>
