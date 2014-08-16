@@ -6,7 +6,7 @@ Normalize Timezones takes Google Analytics Country, Region, Hour and Sessions da
 It useful for understanding behavior of sites with visitors from alot of different timezones by allowing you to estimate behavior based on time of day of the originating visitors home country.
 
 ### Usage
-1- Open this [Google Analytics Query Explorer Url](http://ga-dev-tools.appspot.com/explorer/?dimensions=ga%253Acountry%252Cga%253Aregion%252Cga%253Ahour%252Cga%253Adate&metrics=ga%253Asessions&start-date=31daysAgo&end-date=yesterday&max-results=10000)
+1- Open this [Google Analytics Query Explorer Url](http://ga-dev-tools.appspot.com/explorer/?dimensions=ga%253Acountry%252Cga%253Aregion%252Cga%253Ahour&metrics=ga%253Asessions&start-date=31daysAgo&end-date=yesterday&max-results=10000)
 
 2- Authorize your google analytics account
 
