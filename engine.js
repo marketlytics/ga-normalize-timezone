@@ -127,8 +127,16 @@ $(function(ready){
     	dataJSON=output;
     	console.log(dataJSON);
     	drawChart();
-    	$('#dropdownView').css('display','inline');
-    	$('#inputView').css('display','none');
+    	$('#dropdownView').css('display','block');
+    	$('#dropdownoptions').css('display','inline-block');
+    	$('#processData').css('width','100%');
+    	$('#processData #label').css('display','none');
+    	$('#inputView').css('background-color', '#eaeded');
+    	$('#input').css('display','none');
+    	$('#submit').css('display','none');
+    	$('#usage').css('display','none');
+    	$('#mainText').css('display','none');
+    	$('#enterData').css('display', 'block')
     	filldropbox();
     });
 });
@@ -149,7 +157,3 @@ var filldropbox = function(){
     	}
     	return cells;
     }
-
-
-
-
