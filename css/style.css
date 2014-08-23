@@ -1,37 +1,135 @@
 body {
 	padding: 20px;
-	background: #F4F7FF;
+	/*background: #F4F7FF;*/
+	background-color: #eaeded;
+	font: 100%/1.2em 'Helvetica', Arial, sans-serif; /*set base font bits and pieces here*/
 }
 
-#inputView label {
+#processData {
+	width: 67%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#inputView {
+	width: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+	padding: 20px 0;
+}
+
+#label {
 	text-transform: uppercase;
-	display: block;
 	text-align: center;
 	font-size: 20px;
-	color: #2377FF;
+	background-color: #555;
+	color: #fff;
+	padding: 10px 0;
+	width: 100%;
+	margin: 0;
 }
 
 #inputView textarea {
-	margin: 2px auto 0;
-	min-height: 240px;
+	margin: 20px auto;
+	max-height: 233px;
 	max-width: 722px;
-	border-radius: 20px;
 	display: block;
 	width: 100%;
 	outline: 0;
-	border-color: #2377FF;
-	font-size: 10px;
+	border-color: #00bc9c;
+	font-size: 15px;
+	padding: 20px;
+	color: #555;
 }
 
 #inputView #submit {
-	border-radius: 20px;
 	background: #fff;
 	border: none;
 	padding: 15px 29px;
 	font-size: 15px;
-	margin: 20px auto;
+	margin: 10px auto 0;
 	display: block;
-	background: #2377FF;
+	background-color: #00bc9c;
 	color: #fff;
 	outline: 0;
+	text-transform: uppercase;
+}
+
+#enterData {
+	display: none;
+	background: #fff;
+	border: none;
+	padding: 10px 15px;
+	font-size: 12px;
+	margin: 0 auto;
+	background-color: #00bc9c;
+	color: #fff;
+	outline: 0;
+	text-transform: uppercase;
+	text-align: center;
+	margin-top: 20px;
+	width: 7%;
+	text-decoration: none;
+}
+
+select {
+	height: 30px;
+	line-height: 30px;
+	background-color: #fff;
+	color: #666;
+	border: 1px solid #ccc;
+}
+
+option {
+	font-size: 14px;
+}
+
+#dropdownView {
+	text-align: center;
+}
+
+
+#DropDownTimezone, #dropdownoptions {
+	outline: 0;
+}
+
+#dropdownoptions {
+	display: none;
+}
+
+#mainText {
+	margin-bottom: 40px;
+	color: #555;
+	text-align: center;
+	font-size: 12px;
+}
+
+#usage {
+	width: 25%;
+	display: inline-block;
+	vertical-align: top;
+	color: #555;
+	margin-right: 6%;
+}
+
+#usage h3 {
+	background-color: #00bc9c;
+	color: #fff;
+	font-size: 20px;
+	margin: 0;
+	padding: 10px;
+	text-transform: uppercase;
+}
+
+#usage ul {
+	margin: 0;
+	padding: 10px;
+	background-color: #fff;
+
+}
+
+#usage ul li {
+	list-style-type: none;
+	font-size: 12px;
+	margin-bottom: 6px;
 }

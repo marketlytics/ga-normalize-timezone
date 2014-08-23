@@ -1,11 +1,6 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    
-    <link rel="stylesheet" type="text/css" href="css/select.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/generic.css"> -->
-    <script type='text/javascript' src='select.js'></script>
-
     <script type="text/javascript" src="vendor/jquery-2.1.1/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="engine.js"></script>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -16,59 +11,95 @@
 
         var options = {
           title: 'Number of sessions per country',
+          backgroundColor: '#eaeded',
+          colors: ['00bc9c']
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
         chart.draw(gdata, options);
       }
+      $(document).ready(function() {
+        $('#enterData').click(function() {
+          $('#chart_div').css('display', 'none');
+          $('#inputView').css('display', 'block');
+          $('#input').css('display','block');
+          $('#submit').css('display','block');
+          $('#usage').css('display','inline-block');
+          $('#mainText').css('display','block');
+          $('#processData #label').css('display','none');
+          $('#processData').css('width','67%');
+          $('#dropdownoptions').css('display','none');
+          $(this).css('display', 'none');
+          $('#processData #label').css('display','block');
+          $('#inputView').css('background-color', '#fff');
+        });
+      });
     </script>
   </head>
   <body>
-
-      <div id ='inputView'>
-        <label>enter in data</label>
-        <textarea name="outputs" id = "input" rows="18" cols="100"></textarea>
-        <button id = "submit">Proccess data</button>
-      </div>
-
-      <div style="display: none;" id = 'dropdownView'>
-        <select name="countries" id = 'dropdownoptions' class="turnintodropdown">
-          <script type="text/javascript">
-          </script>
-        </select>
-        <select name="DropDownTimezone" id="DropDownTimezone" class="turnintodropdown">
-              <option value="-12">(GMT -12:00) Eniwetok, Kwajalein</option>
-              <option value="-11">(GMT -11:00) Midway Island, Samoa</option>
-              <option value="-10">(GMT -10:00) Hawaii</option>
-              <option value="-9">(GMT -9:00) Alaska</option>
-              <option value="-8">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
-              <option value="-7">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
-              <option value="-6">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
-              <option value="-5">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
-              <option value="-4">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
-              <option value="-3.5">(GMT -3:30) Newfoundland</option>
-              <option value="-3">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
-              <option value="-2">(GMT -2:00) Mid-Atlantic</option>
-              <option value="-1">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
-              <option value="0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
-              <option value="1">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
-              <option value="2">(GMT +2:00) Kaliningrad, South Africa</option>
-              <option value="3">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
-              <option value="3.5">(GMT +3:30) Tehran</option>
-              <option value="4">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
-              <option value="4.5">(GMT +4:30) Kabul</option>
-              <option value="5">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
-              <option value="5.5">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
-              <option value="6">(GMT +6:00) Almaty, Dhaka, Colombo</option>
-              <option value="7">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
-              <option value="8">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
-              <option value="9">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
-              <option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
-              <option value="10">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
-              <option value="11">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
-              <option value="12">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
-        </select>
-      </div>
+        <div id="mainText">
+          <p>Normalize Timezones takes Google Analytics Country, Region, Hour and Sessions data and normalizes the time to visitors home country.</p>
+          <p>It useful for understanding behavior of sites with visitors from alot of different timezones by allowing you to estimate behavior based on time of day of the originating visitors home country.</p>
+        </div>
+        
+        <div id="usage">
+          <h3>Usage:</h3> 
+          <ul>
+            <li>1- Open this Google Analytics Query Explorer Url</li>
+            <li>2- Authorize your google analytics account</li>
+            <li>3- Select the account and property you'd like to use.</li>
+            <li>4- Scroll down change start-date and end-date if you'd like. (Its set to show last 30 days of data by default).</li>
+            <li>5- Click Get Data button.</li>
+            <li>6- Either copy the entire result table OR click Excel TSV button to download a sheet and copy data from there.</li>
+            <li>7- Paste the data in the text field on http://marketlytics.github.io/ga-normalize-timezone and process the data.</li>
+            <li>8- On next screen see a list of countries and normalized session based on your accounts timezone. (You can toggle your Google Analytics views timezone at the top).</li>
+          </ul>
+        </div>
+        <div id="processData">
+          <h3 id="label">enter in data</h3>
+          <div id ='inputView'>
+            <div id = 'dropdownView'>
+              <select name="countries" id = 'dropdownoptions'>
+                <script type="text/javascript"></script>
+              </select>
+              <select name="DropDownTimezone" id="DropDownTimezone">
+                <option value="5">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+                <option value="-12">(GMT -12:00) Eniwetok, Kwajalein</option>
+                <option value="-11">(GMT -11:00) Midway Island, Samoa</option>
+                <option value="-10">(GMT -10:00) Hawaii</option>
+                <option value="-9">(GMT -9:00) Alaska</option>
+                <option value="-8">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+                <option value="-7">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+                <option value="-6">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+                <option value="-5">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+                <option value="-4">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+                <option value="-3.5">(GMT -3:30) Newfoundland</option>
+                <option value="-3">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+                <option value="-2">(GMT -2:00) Mid-Atlantic</option>
+                <option value="-1">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+                <option value="0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+                <option value="1">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
+                <option value="2">(GMT +2:00) Kaliningrad, South Africa</option>
+                <option value="3">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+                <option value="3.5">(GMT +3:30) Tehran</option>
+                <option value="4">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+                <option value="4.5">(GMT +4:30) Kabul</option>
+                <option value="5.5">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+                <option value="6">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                <option value="7">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                <option value="8">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+                <option value="9">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+                <option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
+                <option value="10">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+                <option value="11">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+                <option value="12">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+              </select>
+            </div>
+            <a href="#" id = "enterData">Enter data</a>
+            <textarea name="outputs" id = "input" rows="18" cols="100"></textarea>
+            <button id = "submit">Proccess data</button>
+          </div>
+        </div>
         <div id="chart_div" style="width: 100%; height: 100%;"></div>
   </body>
 </html>
